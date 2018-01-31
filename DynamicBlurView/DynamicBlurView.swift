@@ -82,9 +82,9 @@ open class DynamicBlurView: UIView {
     open override func didMoveToWindow() {
         super.didMoveToWindow()
 
-        if let view = renderingTarget, window != nil && trackingMode == .none {
-            staticImage = snapshotImage(for: view.layer, conversion: !isDeepRendering)
-        }
+//        if let view = renderingTarget, window != nil && trackingMode == .none {
+//            staticImage = snapshotImage(for: view.layer, conversion: !isDeepRendering)
+//        }
     }
 
     open override func didMoveToSuperview() {
