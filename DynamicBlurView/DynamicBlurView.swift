@@ -13,7 +13,7 @@ open class DynamicBlurView: UIView {
         return BlurLayer.self
     }
 
-    private var staticImage: UIImage?
+    public var staticImage: UIImage?
     private var displayLink: CADisplayLink?
     private var blurLayer: BlurLayer {
         return layer as! BlurLayer
