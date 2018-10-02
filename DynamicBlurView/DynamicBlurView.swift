@@ -12,7 +12,9 @@ open class DynamicBlurView: UIView {
     open override class var layerClass : AnyClass {
         return BlurLayer.self
     }
-
+    
+    open var isAppInactive: Bool = false
+    
     public var staticImage: UIImage?
     private var displayLink: CADisplayLink?
     private var blurLayer: BlurLayer {
@@ -134,6 +136,12 @@ open class DynamicBlurView: UIView {
     }
 
     private func snapshotImage(for layer: CALayer, conversion: Bool) -> UIImage? {
+        
+        if isAppInactive {
+            //"App is inactive skip snapshot"
+            return nil
+        }
+
         let rect = blurLayerRect(to: layer, conversion: conversion)
         guard let context = CGContext.imageContext(with: quality, rect: rect, opaque: isOpaque) else {
             return nil
